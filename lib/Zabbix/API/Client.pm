@@ -74,7 +74,7 @@ sub new {
     $ua = LWP::UserAgent->new;
     $ua->agent($user_agent);
 
-    $req = HTTP::Request->new(POST => $json_url);
+    $req = HTTP::Request->new(GET => $json_url);
     $req->content_type('application/json-rpc');
     $req->content(encode_json({
 
