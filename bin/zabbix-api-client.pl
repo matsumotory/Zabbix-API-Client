@@ -51,6 +51,7 @@ my $API = Zabbix::API::Client->new(
     user_agent      =>  "Zabbix-API-Client",
     user            =>  "api-admin",
     pass            =>  "hogefuga",
+    api_version     =>  "1.8",
     debug           =>  0,
     info            =>  0,
     warn            =>  0,

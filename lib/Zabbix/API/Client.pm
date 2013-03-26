@@ -34,7 +34,11 @@ sub new {
 
     my $json_url    = $args{url};
     my $user_agent  = $args{user_agent};
-
+    my $api_version = $args{api_version};
+    my $auth_method = {
+        "1.8" =>  "user.authenticate",
+        "2.0" =>  "user.login",
+    };
 
     my $self =  bless {
 
@@ -75,7 +79,7 @@ sub new {
     $req->content(encode_json({
 
         jsonrpc     =>  "2.0",
-        method      =>  "user.authenticate",
+        method      =>  $auth_method->{$api_version},
         params      =>  {
                             user        => $args{user},
                             password    => $args{pass},
